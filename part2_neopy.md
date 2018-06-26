@@ -151,6 +151,10 @@ We now have 10k NEO and Gas in our wallet!
 
 ## Task 3 - Smart Contracts
 
+Okay, so we messed with our wallets and made a couple of transactions. Now let's try deploying some smart contracts!
+
+#### 3.1 Hello World
+
 
 ## Acknowledgements
 

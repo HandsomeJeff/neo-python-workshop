@@ -21,10 +21,17 @@ For errors, typos or suggestions, please do not hesitate to [post an issue](http
 ___
 
 ## Task 0 - Install Pre-requisites
-Before you start, make sure you have the following installed:
-1. **Docker**
-2. **Python3.6**
-3. **leveldb**
+Before you start, make sure you have the following:
+1. **Linux/Mac Operating System**
+2. **Docker**
+3. **Python3.6**
+4. **leveldb**
+
+For Docker, try running the following in terminal:
+```
+sudo curl -sSL https://get.docker.com/ | sh
+sudo apt-get update && apt-get upgrade
+```
 
 If you don't have Python 3.6, and have no idea how to install it, run the following commands:
 ```
