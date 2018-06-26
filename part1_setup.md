@@ -8,8 +8,8 @@ This portion involves installing and setting up the environment.
 ___
 
 ### Workshop Details
-**When**: Sunday, 1 Jul 2018. 6:30 PM - 8:30 PM.</br>
-**Where**: xyz Beijing xyz</br>
+**When**: Sunday, 1 Jul 2018. 1:30 PM - 5:30 PM.</br>
+**Where**: 太库北京孵化器</br>
 **Who**: NEO
 
 ### Questions

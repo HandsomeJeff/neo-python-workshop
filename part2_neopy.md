@@ -8,8 +8,8 @@ This portion involves interacting with neo-python command line.
 ___
 
 ### Workshop Details
-**When**: Sunday, 1 Jul 2018. 6:30 PM - 8:30 PM.</br>
-**Where**: xyz Beijing xyz</br>
+**When**: Sunday, 1 Jul 2018. 1:30 PM - 5:30 PM.</br>
+**Where**: 太库北京孵化器</br>
 **Who**: NEO
 
 ### Questions
@@ -152,6 +152,18 @@ We now have 10k NEO and Gas in our wallet!
 ## Task 3 - Smart Contracts
 
 Okay, so we messed with our wallets and made a couple of transactions. Now let's try deploying some smart contracts!
+
+First, download the `smart-contracts` folder and place it in the neo-python folder.
+
+![smart contracts in neopy](assets/smartcontracts_in_neopy.png)
+
+We should have 5 files inside:
+1. 1-print.py
+2. 2-print-and-notify.py
+3. 3-storage.py
+4. 4-domain.py
+5. 5-calculator.py
+
 
 #### 3.1 Hello World
 
