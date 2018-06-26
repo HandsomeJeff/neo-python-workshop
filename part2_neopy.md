@@ -166,6 +166,54 @@ We should have 5 files inside:
 
 
 #### 3.1 Hello World
+The first program most programmers write is `hello world`. It's simple, efficient, and we can easily see the output.
+
+On the NEO blockchain, the contract goes in the following order:
+1. Build
+2. Deploy
+3. Invoke
+
+##### 3.1.1 Build Contract
+The command for building a smart contract is `build {path/to/file.py} (test {params} {returntype} {needs_storage} {needs_dynamic_invoke} {test_params})`
+
+First, enter the command `config sc-events on`. Then try the command `build smart-contracts/1-print.py test 00 00 False False`.
+
+*If you get a "No such file or directory" error, try using the full path of 1-print.py*
+
+Let's break it down:
+* `{path/to/file.py}` is the path to the python file we want to build.
+* `test`: the word "test" has to be typed if we want to test the contract.
+* `{params}` is the type of input parameters, if any, that this contract accept.
+* `{returntype}` is the type of value, if any, that this contract returns.
+* `{needs_storage}` is a boolean that tells the blockchain if our contract requries storage.
+* `{needs_dynamic_invoke}` is a boolean that tells the blockchain if our contracts requires special conditions to execute.
+* `{test_params}` are the actual input parameter values that we might want to test with, if any. Note that `test` has to be typed.
+
+For `{params}` and `{returntype}`, the appropriate values for the commands are as follows:
+
+<!-- | Parameter Type | Signature | Boolean | Integer | Hash160 | Hash256 | ByteArray | PublicKey | String | Array | InteropInterface | void |
+| --- |
+| **Value of param** | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 10 | f0 | ff | -->
+
+| Parameter Type | Value of param |
+| --- |
+| Signature | 00 |
+| Boolean | 01 |
+| Integer | 02 |
+| Hash160 | 03 |
+| Hash256 | 04 |
+| ByteArray | 05 |
+| PublicKey | 06 |
+| String | 07 |
+| Array | 10 |
+| InteropInterface | f0 |
+| void | ff |
+
+Since our `hello world` program requires no input, output, storage, or special run conditions, we can build it with `build smart-contract/1-print.py 00 00 False False`. *note the ommission of `test`, since we want to build it for real now*
+
+
+
+##### 3.1.2 Deploy Contract
 
 
 ## Acknowledgements
