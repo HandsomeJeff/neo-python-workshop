@@ -63,6 +63,8 @@ Pull the latest image from Docker hub <br> `sudo docker pull cityofzion/neo-priv
 
 Be patient! On the first time round it might take a while to start up.
 
+*The Docker image we're pulling is hosted on currently overseas servers. If you're downloading it from a country like China without any special internet tools, it may take hours to load the full image.*
+
 Start the container with the command <br>
 `sudo docker run --rm -d --name neo-privatenet -p 20333-20336:20333-20336/tcp -p 30333-30336:30333-30336/tcp cityofzion/neo-privatenet`.
 

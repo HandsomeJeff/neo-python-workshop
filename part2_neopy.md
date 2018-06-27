@@ -259,6 +259,22 @@ After a few seconds, you should see a bunch of text pop up:
 
 Once again under `SmartContract.Runtime.Log`, there is a 'Hello World' printed. We have successfully invoked a smart contract from our blockchain!
 
+#### 3.2 Print and Notify
+
+Now let's go through the second smart contract.
+ <br>`build smart-contracts/1-print.py test ff ff False False`
+
+![build test contract2](assets/build_test_contract2.png)
+
+Here we see the difference between `print()`, `log()`, and `notify()`. The first two functions are essentially the same - they both appear under `SmartContract.Runtime.Log`. `notify()`, however, appears under `SmartContract.Runtime.Notify`. In addition, it can display multiple arguments.
+
+#### 3.3 Calculator
+
+Now let's try something a little different: a calculator program that takes in multiple inputs and returns a value.
+ <br>`build smart-contracts/3-calculator.py test 070202 02 False False add 1 2`
+
+![build test contract3](assets/build_test_contract3.png)
+
 ## Acknowledgements
 
 Special Thanks to [Jonboy](https://github.com/jonathanlimwj) and [Chris Hager](https://github.com/metachris).
