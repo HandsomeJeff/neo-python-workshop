@@ -73,20 +73,22 @@ Start the container with the command <br>
 *Stop the container with* <br> `sudo docker rm -f neo-privatenet`.
 
 #### 1.2 Running NEO Python
+*If you don't have git, run `sudo apt-get install git`*
+
 Navigate to a directory of your choice and download the neo-python repository with <br> `git clone https://github.com/CityOfZion/neo-python.git`
 
 Go into the neo-python folder with `cd neo-python`.
 
 Create and start a virtual environment so our setup does not interfere with the rest of our machine.
 ```
-python3.6 -m venv venv
+sudo python3.6 -m venv venv
 source venv/bin/activate
 ```
 
 Install neo-python.
 ```
-pip install -r requirements.txt
-pip install -e .
+sudo pip install -r requirements.txt
+sudo pip install -e .
 ```
 
 Start neo-python with `np-prompt -p`.

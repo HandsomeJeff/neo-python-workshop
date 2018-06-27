@@ -275,6 +275,28 @@ Now let's try something a little different: a calculator program that takes in m
 
 ![build test contract3](assets/build_test_contract3.png)
 
+This contract takes in three parameters: string, integer, integer. It then returns an integer. Hence our input parameters is 070202 and return type is 02.
+
+In our command, we've included test parameters 'add', '1', and '2'. If we look at the source code, what we are doing is telling the program to add 1 and 2 together. We can see the return value of '3', which is probably the correct answer.
+
+Deploy the calculator <br> `import contract smart-contracts/3-calculator.avm 070202 02 False False`
+
+Now we need to get the contract hash once again to invoke it. We can either do a search `contract search calculator`, or scroll up to right when we deployed our contract, to find the hash.
+
+![contract hash](assets/contract_hash.png)
+
+At this point, let's invoke our contract and make it, say, multiply 3 with 7. <br> `testinvoke 0x86d58778c8d29e03182f38369f0d97782d303cc0 mul 3 7`
+
+![invoke contract3](assets/invoke_contract3.png)
+
+As we can see, 3 multiplied by 7 gives 21.
+
+#### 3.4 Domain Name Service
+
+The next contract we're working with involves Domain Name Services (DNS) on our blockchain. That is to say, we can register our wallet addresses with unique names.
+
+
+
 ## Acknowledgements
 
 Special Thanks to [Jonboy](https://github.com/jonathanlimwj) and [Chris Hager](https://github.com/metachris).
