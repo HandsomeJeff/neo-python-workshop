@@ -29,6 +29,7 @@ Before you start, make sure you have the following:
 
 For Docker, try running the following in terminal:
 ```
+sudo apt-get install curl
 sudo curl -sSL https://get.docker.com/ | sh
 sudo apt-get update && apt-get upgrade
 sudo service docker start
