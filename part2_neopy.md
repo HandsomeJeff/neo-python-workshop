@@ -176,13 +176,13 @@ On the NEO blockchain, the contract goes in the following order:
 3. Invoke
 
 ##### 3.1.1 Build Contract
-The command for building a smart contract is `build {path/to/file.py} (test {params} {returntype} {needs_storage} {needs_dynamic_invoke} {test_params})`
+The command for building a smart contract is <br> `build {path/to/file.py} (test {params} {returntype} {needs_storage} {needs_dynamic_invoke} {test_params})`
 
-First, enter the command `config sc-events on`. Then try the command `build smart-contracts/1-print.py test ff ff False False`.
+First, enter the command `config sc-events on`. Then try the command <br>`build smart-contracts/1-print.py test ff ff False False`.
 
 *If you get a "No such file or directory" error, try using the full path of 1-print.py*
 
-![build contract1](assets/build_contract1.png)
+![build test contract1](assets/build_test_contract1.png)
 
 We can see under `SmartContract.Runtime.Log`, there is a 'Hello World' printed. This is the outcome of our program.
 
@@ -215,12 +215,49 @@ For `{params}` and `{returntype}`, the appropriate values for the commands are a
 | InteropInterface | f0 |
 | void | ff |
 
-Since our `hello world` program requires no input, output, storage, or special run conditions, we can build it with `build smart-contract/1-print.py 00 00 False False`. *note the ommission of `test`, since we want to build it for real now*
+Since our `hello world` program requires no input, output, storage, or special run conditions, we can build it with <br> `build smart-contract/1-print.py 00 00 False False`. <br>*note the ommission of `test`, since we want to build it for real now*
 
+![build contract1](assets/build_contract1.png)
 
+We see something called `1-print.avm`. What's this `.avm`? Well, NEO cannot read and execute python programs natively, only `.avm` programs. So a compiler has to compile our `.py` file into a `.avm` file before we can deploy it.
 
 ##### 3.1.2 Deploy Contract
+Now that we have a proper `.avm` smart contract, it's time to deploy it!
 
+For that, we'll run the command <br> `import contract smart-contracts/1-print.avm ff ff False False`
+
+You'll be prompted to fill in the following:
+1. Contract Name
+2. Contract Version
+3. Contract Author
+4. Contract Email
+5. Contract Description
+
+You can technically fill in anything you like, but try to write something that makes sense and is easy to remember.
+
+![deploy contract1](assets/deploy_contract1.png)
+
+Enter the password and wait for about 15-20 seconds, or till you see a bunch of random-looking text pop up.
+
+![deployed contract](assets/deployed_contract1.png)
+
+We have now successfully deployed `hello world` to our blockchain!
+
+##### 3.1.3 Invoke Contract
+
+To invoke our contract, we're gonna need our contract hash. To see our contract hash, try searching for your contract with the command `contract search {contract info}`. For me, `{contract info}` will be `steve`.
+
+![contract search](assets/contract_search.png)
+
+I can see that the contract hash for my 'steve contract' is `0x5f21886e9c5674ef65f3ba787c45c7a4957621cd`. Next, enter the command `testinvoke {contract hash}`, where `{contract hash}` is your own contract hash. Enter your password to confirm.
+
+![testinvoke contract1](assets/testinvoke_contract1.png)
+
+After a few seconds, you should see a bunch of text pop up:
+
+![testinvoke success contract1](assets/testinvoke_success_contract1.png)
+
+Once again under `SmartContract.Runtime.Log`, there is a 'Hello World' printed. We have successfully invoked a smart contract from our blockchain!
 
 ## Acknowledgements
 
