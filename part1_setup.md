@@ -56,21 +56,21 @@ The process will go in the following order:
 
 
 #### 1.1 Setting up the Docker Container
-Pull the latest image from Docker hub `sudo docker pull cityofzion/neo-privatenet`.
+Pull the latest image from Docker hub <br> `sudo docker pull cityofzion/neo-privatenet`.
 
 ![docker pull](assets/docker_pull.png)
 
 Be patient! On the first time round it might take a while to start up.
 
-Start the container with the command
+Start the container with the command <br>
 `sudo docker run --rm -d --name neo-privatenet -p 20333-20336:20333-20336/tcp -p 30333-30336:30333-30336/tcp cityofzion/neo-privatenet`.
 
-*You can open bash within the container with* `sudo docker exec -it neo-privatenet /bin/bash`.
+*You can open bash within the container with* <br> `sudo docker exec -it neo-privatenet /bin/bash`.
 
-*Stop the container with* `sudo docker rm -f neo-privatenet`.
+*Stop the container with* <br> `sudo docker rm -f neo-privatenet`.
 
 #### 1.2 Running NEO Python
-Navigate to a directory of your choice and download the neo-python repository with `git clone https://github.com/CityOfZion/neo-python.git`
+Navigate to a directory of your choice and download the neo-python repository with <br> `git clone https://github.com/CityOfZion/neo-python.git`
 
 Go into the neo-python folder with `cd neo-python`.
 
