@@ -31,6 +31,7 @@ For Docker, try running the following in terminal:
 ```
 sudo curl -sSL https://get.docker.com/ | sh
 sudo apt-get update && apt-get upgrade
+sudo service docker start
 ```
 
 If you don't have Python 3.6, and have no idea how to install it, run the following commands:
