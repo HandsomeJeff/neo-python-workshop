@@ -39,7 +39,7 @@ sudo apt-get install software-properties-common python-software-properties
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install python3.6 python3.6-dev python3.6-venv python3-pip libleveldb-dev libssl-dev g++
+sudo apt-get install python3.6 python3.6-dev python3.6-venv libleveldb-dev libssl-dev g++
 ```
 
 

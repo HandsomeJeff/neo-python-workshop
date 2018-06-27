@@ -153,6 +153,8 @@ We now have 10k NEO and Gas in our wallet!
 
 Okay, so we messed with our wallets and made a couple of transactions. Now let's try deploying some smart contracts!
 
+For the purpose of this workshop, I will use **programs** and **smart contracts** interchangeably.
+
 First, download the `smart-contracts` folder and place it in the neo-python folder.
 
 ![smart contracts in neopy](assets/smartcontracts_in_neopy.png)
@@ -176,9 +178,13 @@ On the NEO blockchain, the contract goes in the following order:
 ##### 3.1.1 Build Contract
 The command for building a smart contract is `build {path/to/file.py} (test {params} {returntype} {needs_storage} {needs_dynamic_invoke} {test_params})`
 
-First, enter the command `config sc-events on`. Then try the command `build smart-contracts/1-print.py test 00 00 False False`.
+First, enter the command `config sc-events on`. Then try the command `build smart-contracts/1-print.py test ff ff False False`.
 
 *If you get a "No such file or directory" error, try using the full path of 1-print.py*
+
+![build contract1](assets/build_contract1.png)
+
+We can see under `SmartContract.Runtime.Log`, there is a 'Hello World' printed. This is the outcome of our program.
 
 Let's break it down:
 * `{path/to/file.py}` is the path to the python file we want to build.
