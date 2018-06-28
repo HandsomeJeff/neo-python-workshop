@@ -292,7 +292,15 @@ As we can see, 3 multiplied by 7 gives 21.
 
 #### 3.4 Storage
 
-Next up, we have a program that remembers a given value, and makes changes to it.
+Next up, we have a program that always remembers. First, run `debugstorage on`.
+
+Then run jjjjj
+
+Note that `{needs_storage}` is set to `True`, because we want to store values on this contract.
+
+Take a look at the value here. It says 1.
+
+Run
 
 #### 3.5 Domain Name Service
 
