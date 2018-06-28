@@ -293,7 +293,7 @@ As we can see, 3 multiplied by 7 gives 21.
 
 #### 3.4 Domain Name Service
 
-The next contract we're working with involves Domain Name Services (DNS) on our blockchain. That is to say, we can register our wallet addresses with unique names.
+The next contract we're working with involves Domain Name Services (DNS) on our blockchain. That is to say, we can register our wallet addresses with unique names. 
 
 
 
