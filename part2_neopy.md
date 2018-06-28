@@ -176,7 +176,6 @@ On the NEO blockchain, the contract goes in the following order:
 3. Invoke
 
 ##### 3.1.1 Build Contract
-The command for building a smart contract is <br> `build {path/to/file.py} (test {params} {returntype} {needs_storage} {needs_dynamic_invoke} {test_params})`
 
 First, enter the command `config sc-events on`. Then try the command <br>`build smart-contracts/1-print.py test ff ff False False`.
 
@@ -185,6 +184,8 @@ First, enter the command `config sc-events on`. Then try the command <br>`build 
 ![build test contract1](assets/build_test_contract1.png)
 
 We can see under `SmartContract.Runtime.Log`, there is a 'Hello World' printed. This is the outcome of our program.
+
+The command for building a smart contract is <br> `build {path/to/file.py} (test {params} {returntype} {needs_storage} {needs_dynamic_invoke} {test_params})`
 
 Let's break it down:
 * `{path/to/file.py}` is the path to the python file we want to build.
@@ -215,7 +216,7 @@ For `{params}` and `{returntype}`, the appropriate values for the commands are a
 | InteropInterface | `f0` |
 | void | `ff` |
 
-Since our `hello world` program requires no input, output, storage, or special run conditions, we can build it with <br> `build smart-contract/1-print.py 00 00 False False`. <br>*note the ommission of `test`, since we want to build it for real now*
+Since our `hello world` program requires no input, output, storage, or special run conditions, we can build it with <br> `build smart-contract/1-print.py ff ff False False`. <br> *We can omit the word `test`, if we want to build it wihout testing*
 
 ![build contract1](assets/build_contract1.png)
 
@@ -262,7 +263,7 @@ Once again under `SmartContract.Runtime.Log`, there is a 'Hello World' printed. 
 #### 3.2 Print and Notify
 
 Now let's go through the second smart contract.
- <br>`build smart-contracts/1-print.py test ff ff False False`
+ <br>`build smart-contracts/2-print-and-notify.py test ff ff False False`
 
 ![build test contract2](assets/build_test_contract2.png)
 
@@ -270,12 +271,10 @@ Here we see the difference between `print()`, `log()`, and `notify()`. The first
 
 #### 3.3 Calculator
 
-Now let's try something a little different: a calculator program that takes in multiple inputs and returns a value.
+Now let's try something a little different: a calculator program that takes in multiple inputs and returns a value. This contract takes in three parameters: string, integer, integer. It then returns an integer. Hence our input parameters is 070202 and return type is 02.
  <br>`build smart-contracts/3-calculator.py test 070202 02 False False add 1 2`
 
 ![build test contract3](assets/build_test_contract3.png)
-
-This contract takes in three parameters: string, integer, integer. It then returns an integer. Hence our input parameters is 070202 and return type is 02.
 
 In our command, we've included test parameters 'add', '1', and '2'. If we look at the source code, what we are doing is telling the program to add 1 and 2 together. We can see the return value of '3', which is probably the correct answer.
 
@@ -291,7 +290,11 @@ At this point, let's invoke our contract and make it, say, multiply 3 with 7. <b
 
 As we can see, 3 multiplied by 7 gives 21.
 
-#### 3.4 Domain Name Service
+#### 3.4 Storage
+
+Next up, we have a program that remembers a given value, and makes changes to it.
+
+#### 3.5 Domain Name Service
 
 The next contract we're working with involves Domain Name Services (DNS) on our blockchain. That is to say, we can register our wallet addresses with unique names.
 
