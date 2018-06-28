@@ -2,9 +2,7 @@
 # NEO Smart Contract Workshop (Part 2)
 *by [Steve](https://github.com/HandsomeJeff) for NEO*
 
-This workshop assumes intermediate knowledge of the command line.
-
-This portion involves interacting with neo-python command line.
+This is part 2 of the workshop. [Part 1](https://github.com/HandsomeJeff/neo-python-workshop/blob/master/part1_setup.md) is for installation. This portion involves interacting with neo-python command line.
 ___
 
 ### Workshop Details
@@ -294,13 +292,27 @@ As we can see, 3 multiplied by 7 gives 21.
 
 Next up, we have a program that always remembers. First, run `debugstorage on`.
 
-Then run jjjjj
+Then run `build smart-contracts/4-storage.py test ff ff True False`
 
 Note that `{needs_storage}` is set to `True`, because we want to store values on this contract.
 
+![build test storage 1](assets/built_test_contract4_1.png)
+
 Take a look at the value here. It says 1.
 
-Run
+Run `build smart-contracts/4-storage.py test ff ff True False` again.
+
+![uild test storage 3](assets/built_test_contract4_2.png)
+
+Now it says 2. Run `build smart-contracts/4-storage.py test ff ff True False` one more time.
+
+![uild test storage 3](assets/built_test_contract4_3.png)
+
+It says 3. This demonstrates the storage capability. But this is only in a test environment. We can reset the value with a `debugstorage reset`. Let's deploy this contract to the blockchain with <br>
+`import contract smart-contracts/4-storage.avm ff ff True False`
+
+Enter the necessary details and wait a while for it to be confirmed. Then invoke the contract with `testinvoke {contract hash}`. After a while you'll see the value of 1. Repeating the same command will increment the value each time. The difference between this and the test environment is that we cannot reset the contract once it's on the blockchain. Meaning the value can never decrease or be reset.
+
 
 #### 3.5 Domain Name Service
 

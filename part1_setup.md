@@ -5,6 +5,8 @@
 This workshop assumes intermediate knowledge of the command line.
 
 This portion involves installing and setting up the environment.
+This is part 1 of the workshop. [Part 2](https://github.com/HandsomeJeff/neo-python-workshop/blob/master/part2_neopy.md) is for command line operations. This portion involves interacting with neo-python command line.
+
 ___
 
 ### Workshop Details
@@ -102,6 +104,7 @@ You should see something like this:
 
 ![task 1 screenshot](assets/initialising.png)
 
+You are now ready to move on to [Part 2](https://github.com/HandsomeJeff/neo-python-workshop/blob/master/part2_neopy.md).
 
 ## Acknowledgements
 
