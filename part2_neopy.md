@@ -202,18 +202,18 @@ For `{params}` and `{returntype}`, the appropriate values for the commands are a
 | **Value of param** | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 10 | f0 | ff | -->
 
 | Parameter Type | Value of param |
-| --- |
-| Signature | 00 |
-| Boolean | 01 |
-| Integer | 02 |
-| Hash160 | 03 |
-| Hash256 | 04 |
-| ByteArray | 05 |
-| PublicKey | 06 |
-| String | 07 |
-| Array | 10 |
-| InteropInterface | f0 |
-| void | ff |
+| --- | --- |
+| Signature | `00` |
+| Boolean | `01` |
+| Integer | `02` |
+| Hash160 | `03` |
+| Hash256 | `04` |
+| ByteArray | `05` |
+| PublicKey | `06` |
+| String | `07` |
+| Array | `10` |
+| InteropInterface | `f0` |
+| void | `ff` |
 
 Since our `hello world` program requires no input, output, storage, or special run conditions, we can build it with <br> `build smart-contract/1-print.py 00 00 False False`. <br>*note the ommission of `test`, since we want to build it for real now*
 
@@ -293,7 +293,7 @@ As we can see, 3 multiplied by 7 gives 21.
 
 #### 3.4 Domain Name Service
 
-The next contract we're working with involves Domain Name Services (DNS) on our blockchain. That is to say, we can register our wallet addresses with unique names. 
+The next contract we're working with involves Domain Name Services (DNS) on our blockchain. That is to say, we can register our wallet addresses with unique names.
 
 
 

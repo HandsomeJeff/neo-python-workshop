@@ -75,9 +75,15 @@ Start the container with the command <br>
 #### 1.2 Running NEO Python
 *If you don't have git, run `sudo apt-get install git`*
 
-Navigate to a directory of your choice and download the neo-python repository with <br> `git clone https://github.com/CityOfZion/neo-python.git`
+<!-- Navigate to a directory of your choice and download the neo-python repository with <br> `git clone https://github.com/CityOfZion/neo-python.git` -->
 
-Go into the neo-python folder with `cd neo-python`.
+Navigate to a directory of your choice and download the neo-python repository at https://github.com/CityOfZion/neo-python/releases/tag/v0.7.1.
+
+*Note: we are using v0.7.1 because we've received feedback that the lastest version is unable to start properly.*
+
+Unzip the folder. Then enter it with `cd neo-python-0.7.1`.
+
+<!-- Go into the neo-python folder with `cd neo-python`. -->
 
 Create and start a virtual environment so our setup does not interfere with the rest of our machine.
 ```
