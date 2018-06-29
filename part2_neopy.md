@@ -269,7 +269,7 @@ Here we see the difference between `print()`, `log()`, and `notify()`. The first
 
 #### 3.3 Calculator
 
-Now let's try something a little different: a calculator program that takes in multiple inputs and returns a value. This contract takes in three parameters: string, integer, integer. It then returns an integer. Hence our input parameters is 070202 and return type is 02.
+Now let's try something a little different: a calculator program that takes in multiple inputs and returns a value. This contract takes in three parameters: string, integer, integer. It then returns an integer. Hence our input parameter is 070202 and return type is 02.
  <br>`build smart-contracts/3-calculator.py test 070202 02 False False add 1 2`
 
 ![build test contract3](assets/build_test_contract3.png)
@@ -302,24 +302,115 @@ Take a look at the value here. It says 1.
 
 Run `build smart-contracts/4-storage.py test ff ff True False` again.
 
-![uild test storage 3](assets/built_test_contract4_2.png)
+![build test storage 3](assets/built_test_contract4_2.png)
 
 Now it says 2. Run `build smart-contracts/4-storage.py test ff ff True False` one more time.
 
-![uild test storage 3](assets/built_test_contract4_3.png)
+![build test storage 3](assets/built_test_contract4_3.png)
 
 It says 3. This demonstrates the storage capability. But this is only in a test environment. We can reset the value with a `debugstorage reset`. Let's deploy this contract to the blockchain with <br>
 `import contract smart-contracts/4-storage.avm ff ff True False`
 
-Enter the necessary details and wait a while for it to be confirmed. Then invoke the contract with `testinvoke {contract hash}`. After a while you'll see the value of 1. Repeating the same command will increment the value each time. The difference between this and the test environment is that we cannot reset the contract once it's on the blockchain. Meaning the value can never decrease or be reset.
+Enter the necessary details and wait a while for it to be confirmed. Then invoke the contract with `testinvoke {contract hash}`. After a while you'll see the value of 1.
+
+![invoke storage 1](assets/invoke_contract4_1.png)
+
+Repeating the same command will increment the value each time.
+
+![invoke storage 2](assets/invoke_contract4_2.png)
+
+The difference between this and the test environment is that we cannot reset the contract once it's on the blockchain, given the way the contract is coded. Meaning the value can never decrease or be reset.
 
 
 #### 3.5 Domain Name Service
 
-The next contract we're working with involves Domain Name Services (DNS) on our blockchain. That is to say, we can register our wallet addresses with unique names.
+Our last contract example involves working Domain Name Services (DNS) on our blockchain. That is to say, we can register our wallet addresses with unique names. This example will be a culmination of everything we have learnt so far.
+
+The contract will take in a string followed by an array, and then returns a ByteArray (more on this later). So input parameter is 0710, and return type is 05. We will also be needing storage.
+
+The build command is `build smart-contracts/5-domain.py 0710 05 True False`
+
+Deploy the contract with `import contract smart-contracts/5-domain.avm 0710 05 True False`
+
+For the next part, we'll test out the various functionalities of this contract:
+1. Register a domain name
+2. Query a domain name
+3. Delete a domain name
+4. Transfer ownership of a domain name
+
+##### 3.5.1 Register a Domain Name
+
+To register a wallet address, we need to invoke `register` and enter a name and address. The command looks something like this: `testinvoke {contract_hash} register ['{name}', '{address}']`. We can only register the current wallet that is open.
+
+Let's say I want to assign the name 'steve.com' to the my sample wallet address `AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y`. I'll enter <br>
+`testinvoke 0x37c7ed02c81dbe6109e7b45b8fbbf43f585a71d2 register ['steve.com', 'AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y']`
+
+![invoke contract 5 register](assets/invoke_contract5_register.png)
+
+Here we see a 1, which indicates success.
 
 
+##### 3.5.2 Query a Domain Name
+
+Now, let's check if our address is really registered with the domain name 'steve.com'. For that I enter the command <br> `testinvoke 0x37c7ed02c81dbe6109e7b45b8fbbf43f585a71d2 query ['steve.com']`
+
+![invoke contract 5 query](assets/invoke_contract5_query.png)
+
+Here we see the result `23ba2703c53263e8d6e522dc32203339dcd8eee9`, which is totally not the same as my wallet address `AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y`! Remember the earlier part about ByteArray? Well, our contract returns a ByteArray, whereas our address is a string. Our friend Peter from NEO has build a convenient [tool](https://peterlinx.github.io/DataTransformationTools/) to help us with the conversion.
+
+![scripthash to address](assets/scripthash_to_address.png)
+
+1. Paste the ByteArray where it says "Script Hash", under **Address (little endian)**
+2. Click on **Transform**
+3. Check out the Address value
+
+![scripthash to address 2](assets/scripthash_to_address2.png)
+
+As we can see, the ByteArray `23ba2703c53263e8d6e522dc32203339dcd8eee9` does correspond to the string `AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y`, which is our wallet address!
+
+##### 3.5.3 Delete a Domain Name
+
+If we ever get sick of 'steve.com', we can delete it from this contract. The command is <br> `testinvoke 0x37c7ed02c81dbe6109e7b45b8fbbf43f585a71d2 delete ['steve.com']`
+
+![invoke contract 5 delete](assets/invoke_contract5_delete.png)
+
+Again, we see a 1, which indicates that the action has been successfully executed. To test it, run the query <br> `testinvoke 0x37c7ed02c81dbe6109e7b45b8fbbf43f585a71d2 query ['steve.com']`
+
+![invoke contract 5 delete query](assets/invoke_contract5_delete_query.png)
+
+This time, the contract does not return a ByteArray (**1**), and we get an additional message (**2**).
+
+##### 3.5.4 Transfer Ownership of a Domain Name
+
+Lastly, we're gonna try "gifting" our domain name to another wallet address. For this, we need another wallet address, different from our own. For convenience, I'll create a new wallet and look for its address. `create wallet domainwallet`
+
+![new domain wallet](assets/new_domain_wallet.png)
+
+The address for my domainwallet is `AcBpsw14KnwT66oBnfxWFRgRL4QJcyWMMn`.
+
+Now, I'll log back into my previous wallet, that has all the NEO and Gas. `open wallet neo-privnet.sample.wallet`
+
+Since we deleted 'steve.com' in **3.5.3**, we're gonna have to repeat **3.5.1**. First, register our wallet <br>
+`testinvoke 0x37c7ed02c81dbe6109e7b45b8fbbf43f585a71d2 register ['steve.com', 'AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y']`
+
+Next, we'll transfer ownership of 'steve.com' to domainwallet with <br> `testinvoke 0x37c7ed02c81dbe6109e7b45b8fbbf43f585a71d2 transfer ['steve.com', 'AcBpsw14KnwT66oBnfxWFRgRL4QJcyWMMn']`
+
+After confirmation, we can check the new owner of 'steve.com' by the query <br> `testinvoke 0x37c7ed02c81dbe6109e7b45b8fbbf43f585a71d2 query ['steve.com']`
+
+![invoke contract 5 transfer query](assets/invoke_contract5_transfer_query.png)
+
+We get the ByteArray `dfea3015502e02ff4f389f62bada617d7c12f906`.
+
+![scripthash to address 3](assets/scripthash_to_address3.png)
+
+Once we plug it into the conversion tool, we see the address `AcBpsw14KnwT66oBnfxWFRgRL4QJcyWMMn`, which is our domainwallet.
+
+## 4. End
+
+At this point, we have gone through some basic operations on the neo-python command prompt. You should have a clearer idea of how to deploy and call smart contracts to the NEO blockchain. The next step would be to check out our [Discord](https://discord.gg/bXhmTGp) channel and engage with the rest of our community.
+
+Thanks for joining us, and feel free to [contact me](mailto:yefan0072001@gmail.com) if you have any further queries.
 
 ## Acknowledgements
 
-Special Thanks to [Jonboy](https://github.com/jonathanlimwj) and [Chris Hager](https://github.com/metachris).
+Special Thanks to [Peter Lin](https://github.com/peterlinx), [Jon](https://github.com/jonathanlimwj) and [Chris Hager](https://github.com/metachris).

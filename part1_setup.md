@@ -25,6 +25,7 @@ ___
 ## Task 0 - Install Pre-requisites
 Before you start, make sure you have the following:
 1. **Linux/Mac Operating System**
+  - Tested on Ubuntu (v16.04 and newer), Mint v18.3, CentOS v7.5, macOS Sierra
 2. **Docker**
 3. **Python3.6**
 4. **leveldb**
@@ -45,7 +46,7 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install python3.6 python3.6-dev python3.6-venv libleveldb-dev libssl-dev g++
 ```
-
+*For CentOS users, you can refer to this [guide](https://tecadmin.net/install-python-3-6-on-centos/) on how to install Python 3.6*
 
 ## Task 1 - Getting Started
 
@@ -108,4 +109,4 @@ You are now ready to move on to [Part 2](https://github.com/HandsomeJeff/neo-pyt
 
 ## Acknowledgements
 
-Special Thanks to [Jonboy](https://github.com/jonathanlimwj) and [Chris Hager](https://github.com/metachris).
+Special Thanks to [Peter Lin](https://github.com/peterlinx), [Jon](https://github.com/jonathanlimwj) and [Chris Hager](https://github.com/metachris).
