@@ -9,13 +9,13 @@ This is part 1 of the workshop. [Part 2](https://github.com/HandsomeJeff/neo-pyt
 
 ___
 
-### Workshop Details
-**When**: Sunday, 1 Jul 2018. 1:30 PM - 5:30 PM.</br>
+<!-- ### Workshop Details -->
+<!-- **When**: Sunday, 1 Jul 2018. 1:30 PM - 5:30 PM.</br>
 **Where**: 太库北京孵化器</br>
-**Who**: NEO
+**Who**: NEO -->
 
 ### Questions
-Please raise your hand any time during the workshop or email your questions to [me](mailto:yefan0072001@gmail.com) later.
+Feel free to email your questions to [me](mailto:yefan0072001@gmail.com).
 
 ### Errors
 For errors, typos or suggestions, please do not hesitate to [post an issue](https://github.com/HandsomeJeff/NEO-smart-contract-workshop). Pull requests are very welcome! Thanks!
@@ -27,7 +27,7 @@ Before you start, make sure you have the following:
 1. **Linux/Mac Operating System**
   - Tested on Ubuntu (v16.04 and newer), Mint v18.3, CentOS v7.5, macOS Sierra
 2. **Docker**
-3. **Python3.6**
+3. **Python3.6** or later
 4. **leveldb**
 
 For Docker, try running the following in terminal:
@@ -78,26 +78,27 @@ Start the container with the command <br>
 #### 1.2 Running NEO Python
 *If you don't have git, run `sudo apt-get install git`*
 
-<!-- Navigate to a directory of your choice and download the neo-python repository with <br> `git clone https://github.com/CityOfZion/neo-python.git` -->
+Navigate to a directory of your choice and download the neo-python repository with <br> `git clone https://github.com/CityOfZion/neo-python.git`
 
-Navigate to a directory of your choice and download the neo-python repository at https://github.com/CityOfZion/neo-python/releases/tag/v0.7.1.
+<!-- Navigate to a directory of your choice and download the neo-python repository at
+https://github.com/CityOfZion/neo-python/releases/tag/v0.7.1. -->
 
-*Note: we are using v0.7.1 because we've received feedback that the lastest version is unable to start properly.*
+<!-- *Note: we are using v0.7.1 because we've received feedback that the lastest version is unable to start properly.* -->
 
-Unzip the folder. Then enter it with `cd neo-python-0.7.1`.
+<!-- Unzip the folder. Then enter it with `cd neo-python-0.7.1`. -->
 
-<!-- Go into the neo-python folder with `cd neo-python`. -->
+Go into the neo-python folder with `cd neo-python`.
 
 Create and start a virtual environment so our setup does not interfere with the rest of our machine.
 ```
-sudo python3.6 -m venv venv
+sudo python3 -m venv venv
 source venv/bin/activate
 ```
 
 Install neo-python.
 ```
-sudo pip install -r requirements.txt
-sudo pip install -e .
+sudo pip3 install -r requirements.txt
+sudo pip3 install -e .
 ```
 
 Start neo-python with `np-prompt -p`.
