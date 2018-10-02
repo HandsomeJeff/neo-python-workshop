@@ -160,6 +160,9 @@ For the purpose of this workshop, I will use **programs** and **smart contracts*
 
 First, download the `smart-contracts` folder and place it in the neo-python folder.
 
+If you are working with command line and ssh, first install svn: `sudo apt-get install subversion`
+Then, in your neo-python folder, run the command `svn checkout https://github.com/HandsomeJeff/neo-python-workshop/trunk/smart-contracts` to download the `smart-contracts` folder.
+
 ![smart contracts in neopy](assets/smartcontracts_in_neopy.png)
 
 We should have 5 files inside:
